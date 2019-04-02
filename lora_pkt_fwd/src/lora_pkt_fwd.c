@@ -1961,7 +1961,7 @@ void thread_down(void) {
     last_beacon_gps_time.tv_nsec = 0;
 
     /* beacon packet parameters */
-	beacon_pkt.tx_mode = IMMEDIATE; /* send immediatly */
+	beacon_pkt.tx_mode = TIMESTAMPED; /* send immediatly */
     beacon_pkt.rf_chain = 0; /* antenna A */
     beacon_pkt.rf_power = beacon_power;
     beacon_pkt.modulation = MOD_LORA;
