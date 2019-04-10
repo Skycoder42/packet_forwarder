@@ -2125,7 +2125,8 @@ void thread_down(void) {
 #endif
 
                     /* convert GPS time to concentrator time, and set packet counter for JiT trigger */
-                    lgw_gps2cnt(time_reference_gps, next_beacon_gps_time, &(beacon_pkt.count_us));
+					lgw_gps2cnt(time_reference_gps, next_beacon_gps_time, &(beacon_pkt.count_us));
+					MSG_DEBUG(DEBUG_BEACON, "DEBUG: lgw_gps2cnt delta_sec=%f\n", (beacon_pkt.count_us - time_reference_gps.count_us) / (1E6 * time_reference_gps.xtal_err));
                     pthread_mutex_unlock(&mx_timeref);
 
                     /* apply frequency correction to beacon TX frequency */
