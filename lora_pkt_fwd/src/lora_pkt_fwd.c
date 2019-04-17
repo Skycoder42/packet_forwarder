@@ -2708,7 +2708,7 @@ static void gps_process_coords(void) {
 
 void thread_gps(void) {
     /* serial variables */
-    char serial_buff[128]; /* buffer to receive GPS data */
+    char serial_buff[512]; /* buffer to receive GPS data */
     size_t wr_idx = 0;     /* pointer to end of chars in buffer */
 
     /* variables for PPM pulse GPS synchronization */
