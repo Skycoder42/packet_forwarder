@@ -2306,7 +2306,9 @@ void thread_down(void) {
                         json_value_free(root_val);
                         continue;
                     } else {
-                        MSG("INFO: [down] a packet will be sent on timestamp value %u (calculated from GPS time)\n", txpkt.count_us);
+                        time_t time_unix;
+                        time_unix = gps_tx.tv_sec + UNIX_GPS_EPOCH_OFFSET;
+                        MSG("INFO: [down] a packet will be sent on timestamp value %u (calculated from GPS time %s)\n", txpkt.count_us, ctime(&time_unix));
                     }
 
                     /* GPS timestamp is given, we consider it is a Class B downlink */
